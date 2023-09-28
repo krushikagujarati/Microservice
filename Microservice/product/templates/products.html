@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Products</title>
+</head>
+<body>
+    <h2>Products</h2>
+    <form action="/" method="post">
+        <input type="text" name="name" placeholder="Enter product name" required>
+        <input type="text" name="description" placeholder="Enter product description" required>
+        <input type="submit" value="Add Product">
+    </form>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>
+                <a href="/delete_product/{{ product[0] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <!-- <a href="/">Go to Users</a> -->
+</body>
+</html>

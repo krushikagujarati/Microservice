@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usersflaskapp-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: usersflaskapp
+  template:
+    metadata:
+      labels:
+        app: usersflaskapp
+    spec:
+      containers:
+      - name: usersflaskapp
+        image: krushikagujarati/usersflaskapp
+        ports:
+        - containerPort: 5001
